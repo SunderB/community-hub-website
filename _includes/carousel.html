@@ -1,0 +1,33 @@
+<!-- <div class="container"> -->
+
+<div class="carousel slide" data-ride="carousel", id="top_carousel">
+  <!-- <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+  </ol> -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{ page.header_picture }}" alt="{{ page.header_picture_name }}" class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+        {% if page.header_h1 == null %}
+          <h1 id="header_title">{{ page.title }}</h1>
+        {% else %}
+          <h1 id="header_title">{{ page.header_h1 }}</h1>
+        {% endif %}
+        <h2>{{ page.header_h2 }}</h2>
+        {% if page.header_button_text != null %}
+          <a class="btn btn-primary" href="{{ page.header_button_link }}" role="button">{{ page.header_button_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <!-- <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a> -->
+</div>

@@ -1,27 +1,63 @@
 <!--
 SunderB's Website
-Unique Content (unless otherwise stated) is All Rights Reserved
-See LICENSE (https://github.com/SunderB/sunderb.github.io/blob/master/LICENSE)
+Copyright SunderB All Rights Reserved
+See LICENSE for full license (https://github.com/SunderB/sunderb.github.io/blob/master/LICENSE)
 -->
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8 "name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>SunderB's Website</title>
-	<link rel="stylesheet" href="https://sunderb.github.io/main.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:500,700|Raleway:700|Roboto">
+	{% include head.html %}
 </head>
 <style>
 </style>
 <body>
+
+	<script type="text/javascript">
+		{% include resize_main_section.js %}
+		{% if page.header == "picture" %}
+			$("#header_picture").ready(function(){
+				var nwidth  = document.getElementById("header_picture").naturalWidth;
+				var nheight = document.getElementById("header_picture").naturalHeight;
+				var aspectratio = nwidth/nheight;
+				var set_min_width = aspectratio * 400;
+				$("#header_picture").css({ "min-width": set_min_width + "px"});
+				window.addEventListener('resize', function(){
+					if (document.getElementById("header_picture").height == 400) {
+						var width_dif = document.getElementById("header_picture").width - document.documentElement.clientWidth;
+						var move = width_dif/2;
+						$("#header_picture").css({ "left": "-" + move + "px"});
+					} else {
+						$("#header_picture").css({ "left": "0px"});
+					}
+				}, true);
+			});
+		{% endif %}
+	</script>
+
 	<div id="main_wrapper">
-		{% include header.html %}
-		<div id="content">
-	
-    		{{ content }}
-		
+		{% include navbar.html %}
+
+		{% if page.header == "carousel" %}
+			{% include carousel.html %}
+		{% endif %}
+
+		<div id="content" class="d-flex flex-column h-100">
+
+		{% if page.header == "text" %}
+			<header id="second_header">
+			{% if page.header_h1 == null %}
+				<h1> {{ page.title }} </h1>
+			{% else %}
+				<h1> {{ page.header_h1 }} </h1>
+			{% endif %}
+			</header>
+		{% endif %}
+
+		{{ content }}
+
 		</div>
 		{% include footer.html %}
 	</div>
+	{% include bootstrap-scripts.html %}
 </body>
 </html>

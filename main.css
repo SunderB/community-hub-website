@@ -61,6 +61,15 @@ div.container {
     padding: 10px;
 }
 
+#top_carousel img {
+	height: 200px;
+}
+
+#top_carousel .carousel-inner {
+	height: 200px;
+}
+
+/*
 #top_menu {
 	text-align: center;
 	background-color: #00A2E8;
@@ -99,7 +108,7 @@ div.container {
 }
 #top_menu ul li a.active {
 	background-color: #000000;
-}
+} */
 /* unvisited link
 #top_menu ul a:link {
     color: white;
@@ -115,7 +124,7 @@ div.container {
     color: cyan;
 }
 */
-/* selected link 
+/* selected link
 #top_menu ul a:active {
     color: cyan;
 }
@@ -153,24 +162,26 @@ div.container {
 header,section,footer,aside,nav,article,hgroup{
 	display: block;
 }
-body{
+
+body {
+	padding-top: 50px;
 	text-align: center;
-	padding-top: 100px;
 	background-color: rgb(255, 255, 255);
 }
+
 #content{
 	max-width: 1000px;
 	margin: auto;
 	text-align: left;
 	background-color: rgb(255, 255, 255);
 	overflow: hidden;
-	
+
 }
 #top_header{
 	padding: 20px;
 }
 #top_header h1 {
-     display: inline;   
+     display: inline;
 }
 #github-avatar-pic {
 	display: inline-block;
@@ -247,10 +258,10 @@ textarea{
 	resize: none;
 }
 .textarea_left {
-	float: left;	
+	float: left;
 }
 .textarea_right {
-	float: right;	
+	float: right;
 }
 #side_info{
 	float: right;
