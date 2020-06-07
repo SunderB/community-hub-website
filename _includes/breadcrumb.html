@@ -13,13 +13,19 @@
         <li class="breadcrumb-item active" aria-current="page"><a href="{{ page.url }}">{{ names[i] }}</a></li>
         {% break %}
       {% endif %}
+<!--
+      {% if component == "" %}
+      <li class="breadcrumb-item">
+        <a href="/">{{ names[i] }}</a>
+      </li>
+      {% endif %} -->
 
-      {% assign running_url = running_url | append: {{ component | prepend: "/" }} %}
+      {% capture running_url %}{{ running_url }}{{ component }}/{% endcapture %}
 
       <li class="breadcrumb-item">
         <a href="{{ running_url }}">{{ names[i] }}</a>
       </li>
-      {% increment i %}
+      {% assign i = increment i %}
     {% endfor %}
 
 
