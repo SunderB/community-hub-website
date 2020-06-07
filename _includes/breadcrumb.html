@@ -1,0 +1,27 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    {% assign url_components = page.url | split: "/" %}
+    {% assign names = page.breadcrumb_names | split: "/" %}
+
+    {% assign i = 0 %}
+    {% assign running_url = "" %}
+
+    {% assign size = url_components | size %}
+
+    {% for component in url_components %}
+      {% if i == size - 1 %}
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{ page.url }}">{{ names[i] }}</a></li>
+        {% break %}
+      {% endif %}
+
+      {% assign running_url = running_url | append: {{ component | prepend: "/" }} %}
+
+      <li class="breadcrumb-item">
+        <a href="{{ running_url }}">{{ names[i] }}</a>
+      </li>
+      {% increment i %}
+    {% endfor %}
+
+
+  </ol>
+</nav>

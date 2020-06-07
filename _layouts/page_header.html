@@ -43,6 +43,10 @@ See LICENSE for full license (https://github.com/SunderB/sunderb.github.io/blob/
 
 		<div id="content" class="d-flex flex-column h-100">
 
+			{% if page.breadcrumb_names != null %}
+				{% include breadcrumb.html %}
+			{% endif %}
+
 		{% if page.header == "text" %}
 			<header id="second_header">
 			{% if page.header_h1 == null %}
